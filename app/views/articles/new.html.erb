@@ -1,0 +1,27 @@
+<h1>New Article</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for articles</p>
+    <ul>
+      <li>Make sure it is unique and can't be found anywhere else.</li>
+      <li>Make sure you won't add any external links or product promotion.</li>
+      <li>Make sure your article is focused in delivering value about the chosen topic.</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <%= form_for @articles do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter article title" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter article body" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>
