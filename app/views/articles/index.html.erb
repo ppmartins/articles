@@ -1,0 +1,11 @@
+<h1>Most recent Articles<h1>
+<% @articles.each do |articles| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to articles.title, articles %>
+      </h4>
+    </div>
+  </div>
+<% end %>
+<%= link_to "New Article", new_article_path %>
