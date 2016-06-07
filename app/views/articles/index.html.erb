@@ -1,11 +1,20 @@
 <h1>Most recent Articles<h1>
-<% @articles.each do |articles| %>
+<% @articles.each do |article| %>
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-        <%= link_to articles.title, articles %>
+        <%= link_to article.title, article %>
       </h4>
     </div>
   </div>
 <% end %>
-<%= link_to "New Article", new_article_path %>
+<h2>Want to add an article?</h2>
+<p>
+  <strong>Choose a topic to add it to:</strong>
+  <ul>
+    <% @topics.each do |topic| %>
+      <li><%= link_to topic.name, topic %></li>
+    <% end %>
+  </ul>
+  <strong>Or <%= link_to 'create a new topic', new_topic_path %></strong>
+</p>

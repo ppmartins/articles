@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @article.title = params[:article][:title]
     @article.body = params[:article][:body]
+    @article.topic_id = params[:article][:topic_id]
 
     if @article.save
       flash[:notice] = "Your article was saved successfully."
