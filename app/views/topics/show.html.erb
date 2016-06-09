@@ -5,11 +5,11 @@
 <div class="row">
   <div class="col-md-8">
     <p class="lead"><%= @topic.description %></p>
-    <% @topic.articles.each do |post| %>
+    <% @topic.articles.each do |topic| %>
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to article.title, article %>
+            <%= link_to article.title, topic_article_path(@article.topic, @article) %>
           </h4>
         </div>
       </div>
