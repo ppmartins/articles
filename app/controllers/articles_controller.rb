@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       flash[:notice] = "Your article was updated successfully."
-      redirect_to @article
+      redirect_to topic_article_path(@article.topic, @article)
 
     else
       flash[:alert] = "Your article wasn't updated. Please try again."
@@ -52,7 +52,7 @@ class ArticlesController < ApplicationController
 
     if @article.destroy
       flash[:notice] = "Your article was deleted successfully."
-      redirect_to articles_path
+      redirect_to root_path
 
     else
       flash[:alert] = "Your article wasn't deleted. Please try again."

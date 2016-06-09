@@ -9,10 +9,10 @@ class CommentsController < ApplicationController
 
     if comment.save
       flash[:notice] = "Comment saved successfully."
-      redirect_to topic_article_path(article.topic, article)
+      redirect_to topic_article_path(@article.topic, @article)
     else
       flash[:alert] = "Comment failed to save. Please try again."
-      redirect_to topic_article_path(article.topic, article)
+      redirect_to topic_article_path(@article.topic, @article)
     end
   end
 
@@ -22,10 +22,10 @@ class CommentsController < ApplicationController
 
     if comment.destroy
       flash[:notice] = "Comment was deleted successfully."
-      redirect_to topic_article_path(article.topic, article)
+      redirect_to topic_article_path(@article.topic, @article)
     else
       flash[:alert] = "Comment wasn't deleted. Please try again."
-      redirec_to topic_article_path(article.topic, article)
+      redirec_to topic_article_path(@article.topic, @article)
     end
   end
 
