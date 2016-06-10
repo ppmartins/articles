@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       flash[:notice] = "Your article was saved successfully."
-      redirect_to @article
+      redirect_to topic_article_path(@article.topic, @article)
 
     else
       flash[:alert] = "Your article wasn't saved. Please try again."
