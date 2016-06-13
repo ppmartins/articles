@@ -20,7 +20,8 @@ topics = Topic.all
   Article.create!(
     title: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
-    topic: topics.sample
+    topic: topics.sample,
+    user: users.sample
   )
 end
 articles = Article.all

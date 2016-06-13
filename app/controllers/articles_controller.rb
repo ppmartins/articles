@@ -17,11 +17,12 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @article.title = params[:article][:title]
     @article.body = params[:article][:body]
-    @article.topic_id = params[:article][:topic_id]
+    @article.topic_id = params[:topic_id]
+    @article.user_id = params[:user_id]
 
     if @article.save
       flash[:notice] = "Your article was saved successfully."
-      redirect_to @article
+      redirect_to topic_article_path(@article.topic, @article)
 
     else
       flash[:alert] = "Your article wasn't saved. Please try again."
