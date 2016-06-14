@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
+
   def index
     @articles = Article.all
     @topics = Topic.all
@@ -18,7 +20,7 @@ class ArticlesController < ApplicationController
     @article.title = params[:article][:title]
     @article.body = params[:article][:body]
     @article.topic_id = params[:topic_id]
-    @article.user_id = params[:user_id]
+    @article.user = current_user
 
     if @article.save
       flash[:notice] = "Your article was saved successfully."
