@@ -1,5 +1,5 @@
 <h1>Most recent Articles<h1>
-<% @articles.each do |article| %>
+<% @articles.limit(10).each do |article| %>
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
@@ -8,12 +8,13 @@
     </div>
   </div>
 <% end %>
+
 <h2>Want to add an article?</h2>
 <p>
   <strong>Choose a topic to add it to:</strong>
   <ul>
     <% @topics.each do |topic| %>
-      <li><%= link_to topic.name, topic %></li>
+      <li><%= link_to topic.name, topic %> --> <%= topic.articles.count %> article(s)</li>
     <% end %>
   </ul>
   <strong>Or <%= link_to 'create a new topic', new_topic_path %></strong>
